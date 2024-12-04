@@ -1,22 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ehosta <ehosta@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/04 13:49:24 by ehosta            #+#    #+#             */
-/*   Updated: 2024/11/08 15:36:09 by ehosta           ###   LAUSANNE.ch       */
+/*   Created: 2024/11/06 12:06:02 by ehosta            #+#    #+#             */
+/*   Updated: 2024/11/06 12:06:02 by ehosta           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-# define LIBFT_H
+#include "ft_mem.h"
 
-# include "fd/ft_fd.h"
-# include "is/ft_is.h"
-# include "lst/ft_lst.h"
-# include "mem/ft_mem.h"
-# include "to/ft_to.h"
+void	*ft_memset(void *b, int c, size_t len)
+{
+	unsigned char	*sstr;
 
-#endif
+	sstr = (unsigned char *)b;
+	while (len > 0)
+	{
+		sstr[len - 1] = (unsigned char)c;
+		len--;
+	}
+	return (b);
+}

@@ -1,22 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ehosta <ehosta@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/04 13:49:24 by ehosta            #+#    #+#             */
-/*   Updated: 2024/11/08 15:36:09 by ehosta           ###   LAUSANNE.ch       */
+/*   Created: 2024/11/05 14:55:31 by ehosta            #+#    #+#             */
+/*   Updated: 2024/11/05 14:55:31 by ehosta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-# define LIBFT_H
+#include "ft_str.h"
 
-# include "fd/ft_fd.h"
-# include "is/ft_is.h"
-# include "lst/ft_lst.h"
-# include "mem/ft_mem.h"
-# include "to/ft_to.h"
+size_t	ft_strlcpy(char *dst, const char *src, size_t size)
+{
+	size_t	srclen;
+	size_t	i;
 
-#endif
+	srclen = ft_strlen(src);
+	if (!size)
+		return (srclen);
+	i = 0;
+	while (i < size - 1 && src[i])
+	{
+		dst[i] = src[i];
+		i++;
+	}
+	if (i < size)
+		dst[i] = '\0';
+	while (src[i] != '\0')
+		i++;
+	return (i);
+}

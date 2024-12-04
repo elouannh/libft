@@ -1,22 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   ft_lstnew_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ehosta <ehosta@student.42lyon.fr>          +#+  +:+       +#+        */
+/*   By: ehosta <ehosta@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/04 13:49:24 by ehosta            #+#    #+#             */
-/*   Updated: 2024/11/08 15:36:09 by ehosta           ###   LAUSANNE.ch       */
+/*   Created: 2024/11/13 10:48:32 by ehosta            #+#    #+#             */
+/*   Updated: 2024/11/13 10:48:32 by ehosta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-# define LIBFT_H
+#include "ft_lst.h"
 
-# include "fd/ft_fd.h"
-# include "is/ft_is.h"
-# include "lst/ft_lst.h"
-# include "mem/ft_mem.h"
-# include "to/ft_to.h"
+t_list	*ft_lstnew(void *content)
+{
+	t_list	*lst;
 
-#endif
+	lst = (t_list *)malloc(sizeof(t_list));
+	if (!lst)
+		return (NULL);
+	lst->content = content;
+	lst->next = NULL;
+	return (lst);
+}

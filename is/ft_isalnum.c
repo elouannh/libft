@@ -1,22 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   ft_isalnum.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ehosta <ehosta@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/04 13:49:24 by ehosta            #+#    #+#             */
-/*   Updated: 2024/11/08 15:36:09 by ehosta           ###   LAUSANNE.ch       */
+/*   Created: 2024/11/04 14:59:52 by ehosta            #+#    #+#             */
+/*   Updated: 2024/11/04 14:59:52 by ehosta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-# define LIBFT_H
+#include "ft_is.h"
 
-# include "fd/ft_fd.h"
-# include "is/ft_is.h"
-# include "lst/ft_lst.h"
-# include "mem/ft_mem.h"
-# include "to/ft_to.h"
-
-#endif
+int	ft_isalnum(int c)
+{
+	return (ft_isalpha(c) || ft_isdigit(c));
+}
