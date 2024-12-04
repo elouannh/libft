@@ -105,8 +105,9 @@ endif
 TOTAL_FILES		:=	$(words $(SRCALL))
 COMPILED_FILES	:=	0
 PERCENT			:=	0
-FILLED			:=	0
-EMPTY			:=	0
+BAR_WIDTH		:=	30
+
+REPEAT_CHAR		=	$(if $(filter-out 0,$2),$(shell seq 1 $2 | xargs -I@ printf "$1"),)
 
 ################################################################################
 # RULES ########################################################################
@@ -116,6 +117,7 @@ all: 			print_message $(NAME)
 
 $(NAME): 		$(OBJ)
 				@$(AR) $(ARFLAGS) $(NAME) $(OBJ)
+				@printf "${_ERASE}  | ${_CYAN}[$(call REPEAT_CHAR,⣿,$(BAR_WIDTH))$(call REPEAT_CHAR, ,0)]${_END} ${_WHITE}${PERCENT}%%${_END} ${_GREY}ϟ Compiled.${_END}"
 				@echo ""
 				@if [ $(NORM) -eq 0 ]; then\
 					echo "  $(_GREEN)$(NORM_RET)$(_END)";\
@@ -140,7 +142,9 @@ $(OBJDIR)/%.o: 	%.c $(MFILE) $(HDRS) $(SUBHDRS)
 				@$(CC) $(CFLAGS) -c $< -o $@
 				@$(eval COMPILED_FILES := $(shell expr $(COMPILED_FILES) + 1))
 				@$(eval PERCENT := $(shell echo $$(($(COMPILED_FILES) * 100 / $(TOTAL_FILES)))))
-				@printf "${_ERASE}  | ${_CYAN}${PERCENT}%% ϟ Compiling: $<${_END}"
+				@$(eval PROGRESS := $(shell echo $$(($(PERCENT) * $(BAR_WIDTH) / 100))))
+				@$(eval EMPTY := $(shell echo $$(($(BAR_WIDTH) - $(PROGRESS)))))
+				@printf "${_ERASE}  | $(_CYAN)[$(call REPEAT_CHAR,⣿,$(PROGRESS))$(call REPEAT_CHAR, ,$(EMPTY))]${_END} ${_WHITE}${PERCENT}%%${_END} ${_GREY}ϟ Compiling: $<${_END}" 10
 
 # [%.$(FILLED)s= %$(EMPTY)s0]
 
