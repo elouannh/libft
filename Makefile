@@ -146,8 +146,6 @@ $(OBJDIR)/%.o: 	%.c $(MFILE) $(HDRS) $(SUBHDRS)
 				@$(eval EMPTY := $(shell echo $$(($(BAR_WIDTH) - $(PROGRESS)))))
 				@printf "${_ERASE}  | $(_CYAN)[$(call REPEAT_CHAR,⣿,$(PROGRESS))$(call REPEAT_CHAR, ,$(EMPTY))]${_END} ${_WHITE}${PERCENT}%%${_END} ${_GREY}ϟ Compiling: $<${_END}" 10
 
-# [%.$(FILLED)s= %$(EMPTY)s0]
-
 $(OBJDIR):
 				@echo "$(_PURPLE)Making output directory...$(_END)"
 				@mkdir -p $(OBJDIR)
