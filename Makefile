@@ -102,6 +102,12 @@ else
 	NORM_RET = "[ERROR] Norminette."
 endif
 
+TOTAL_FILES		:=	$(words $(SRCALL))
+COMPILED_FILES	:=	0
+PERCENT			:=	0
+FILLED			:=	0
+EMPTY			:=	0
+
 ################################################################################
 # RULES ########################################################################
 ################################################################################
@@ -110,7 +116,7 @@ all: 			print_message $(NAME)
 
 $(NAME): 		$(OBJ)
 				@$(AR) $(ARFLAGS) $(NAME) $(OBJ)
-				@printf "${_ERASE}"
+				@echo ""
 				@if [ $(NORM) -eq 0 ]; then\
 					echo "  $(_GREEN)$(NORM_RET)$(_END)";\
 				else\
@@ -132,7 +138,11 @@ $(NAME): 		$(OBJ)
 $(OBJDIR)/%.o: 	%.c $(MFILE) $(HDRS) $(SUBHDRS)
 				@mkdir -p $(dir $@)
 				@$(CC) $(CFLAGS) -c $< -o $@
-				@printf "${_ERASE} | ${_CYAN}ϟ Compiled:\t$<${_END}"
+				@$(eval COMPILED_FILES := $(shell expr $(COMPILED_FILES) + 1))
+				@$(eval PERCENT := $(shell echo $$(($(COMPILED_FILES) * 100 / $(TOTAL_FILES)))))
+				@printf "${_ERASE}  | ${_CYAN}${PERCENT}%% ϟ Compiling: $<${_END}"
+
+# [%.$(FILLED)s= %$(EMPTY)s0]
 
 $(OBJDIR):
 				@echo "$(_PURPLE)Making output directory...$(_END)"
@@ -156,11 +166,11 @@ print_message:
 
 clean:
 				@$(RM) $(RMFLAGS) $(OBJDIR)
-				@echo " | $(_RED)× Removed the objects.$(_END)"
+				@echo "  | $(_RED)× Removed the objects.$(_END)"
 
 fclean: 		clean
 				@$(RM) $(RMFLAGS) $(NAME)
-				@echo " | $(_RED)× Removed the library.$(_END)"
+				@echo "  | $(_RED)× Removed the library.$(_END)"
 
 re: 			fclean all
 
