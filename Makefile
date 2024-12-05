@@ -126,7 +126,7 @@ $(NAME): 		$(OBJ)
 				fi
 				@echo ""
 				@echo "$(_BOLD)$(_GREEN)  ╔═══════════════════════════════════════╗$(-END)"
-				@echo "$(_BOLD)$(_GREEN)  ║ Library $@ created successfully! ║$(_END)"
+				@echo "$(_BOLD)$(_GREEN)  ║ Library $(_END)${_UNDER}$@$(_END) $(_GREEN)created successfully! ║$(_END)"
 				@echo "$(_BOLD)$(_GREEN)  ║                                       ║$(-END)"
 				@echo "$(_BOLD)$(_GREEN)  ║   $(PIKA0)      ║\n  ║   $(PIKA1)      ║$(-END)"
 				@echo "$(_BOLD)$(_GREEN)  ║   $(PIKA2)      ║\n  ║   $(PIKA3)      ║$(-END)"
