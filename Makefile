@@ -125,16 +125,16 @@ $(NAME): 		$(OBJ)
 					echo "  | $(_RED)$(NORM_RET)$(_END)";\
 				fi
 				@echo ""
-				@echo "$(_BOLD)$(_GREEN)  ╔═══════════════════════════════════════╗$(-END)"
+				@echo "$(_BOLD)$(_GREEN)  ╔═══════════════════════════════════════╗$(_END)"
 				@echo "$(_BOLD)$(_GREEN)  ║ Library $(_END)${_UNDER}$@$(_END) $(_GREEN)created successfully! ║$(_END)"
-				@echo "$(_BOLD)$(_GREEN)  ║                                       ║$(-END)"
-				@echo "$(_BOLD)$(_GREEN)  ║   $(PIKA0)      ║\n  ║   $(PIKA1)      ║$(-END)"
-				@echo "$(_BOLD)$(_GREEN)  ║   $(PIKA2)      ║\n  ║   $(PIKA3)      ║$(-END)"
-				@echo "$(_BOLD)$(_GREEN)  ║   $(PIKA4)      ║\n  ║   $(PIKA5)      ║$(-END)"
-				@echo "$(_BOLD)$(_GREEN)  ║   $(PIKA6)      ║\n  ║   $(PIKA7)      ║$(-END)"
-				@echo "$(_BOLD)$(_GREEN)  ║   $(PIKA8)      ║\n  ║   $(PIKA9)      ║$(-END)"
-				@echo "$(_BOLD)$(_GREEN)  ║   $(PIKA10)      ║$(-END)"
-				@echo "$(_BOLD)$(_GREEN)  ╚═══════════════════════════════════════╝$(-END)"
+				@echo "$(_BOLD)$(_GREEN)  ║                                       ║$(_END)"
+				@echo "$(_BOLD)$(_GREEN)  ║   $(PIKA0)      ║\n  ║   $(PIKA1)      ║$(_END)"
+				@echo "$(_BOLD)$(_GREEN)  ║   $(PIKA2)      ║\n  ║   $(PIKA3)      ║$(_END)"
+				@echo "$(_BOLD)$(_GREEN)  ║   $(PIKA4)      ║\n  ║   $(PIKA5)      ║$(_END)"
+				@echo "$(_BOLD)$(_GREEN)  ║   $(PIKA6)      ║\n  ║   $(PIKA7)      ║$(_END)"
+				@echo "$(_BOLD)$(_GREEN)  ║   $(PIKA8)      ║\n  ║   $(PIKA9)      ║$(_END)"
+				@echo "$(_BOLD)$(_GREEN)  ║   $(PIKA10)      ║$(_END)"
+				@echo "$(_BOLD)$(_GREEN)  ╚═══════════════════════════════════════╝$(_END)"
 				@echo ""
 
 $(OBJDIR)/%.o: 	%.c $(MFILE) $(HDRS) $(SUBHDRS)
@@ -156,13 +156,13 @@ print_message:
 					echo "";\
 					echo "$(_BOLD)$(_GREEN)  ╔═══════════════════════════════════════╗";\
 					echo "  ║ ☆ Library is being created...         ║";\
-					echo "  ╚═══════════════════════════════════════╝$(-END)";\
+					echo "  ╚═══════════════════════════════════════╝$(_END)";\
 					echo "";\
 				else\
 					echo "";\
 					echo "$(_BOLD)$(_YELLOW)  ╔═══════════════════════════════════════╗";\
 					echo "  ║ ⚠️ Library already exists!             ║";\
-					echo "  ╚═══════════════════════════════════════╝$(-END)";\
+					echo "  ╚═══════════════════════════════════════╝$(_END)";\
 					echo "";\
 				fi
 
