@@ -120,9 +120,9 @@ $(NAME): 		$(OBJ)
 				@printf "${_ERASE}  | ${_CYAN}[$(call REPEAT_CHAR,⣿,$(BAR_WIDTH))$(call REPEAT_CHAR, ,0)]${_END} ${_WHITE}${PERCENT}%%${_END} ${_GREY}ϟ Compiled.${_END}"
 				@echo ""
 				@if [ $(NORM) -eq 0 ]; then\
-					echo "  $(_GREEN)$(NORM_RET)$(_END)";\
+					echo "  | $(_GREEN)$(NORM_RET)$(_END)";\
 				else\
-					echo "  $(_RED)$(NORM_RET)$(_END)";\
+					echo "  | $(_RED)$(NORM_RET)$(_END)";\
 				fi
 				@echo ""
 				@echo "$(_BOLD)$(_GREEN)  ╔═══════════════════════════════════════╗$(-END)"
