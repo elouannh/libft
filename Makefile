@@ -85,15 +85,13 @@ BAR_WIDTH		:=	30
 
 REPEAT_CHAR		=	$(if $(filter-out 0,$2),$(shell seq 1 $2 | xargs -I@ printf "$1"),)
 
-################################################################################
 # RULES ########################################################################
-################################################################################
 
 all: 			print_message $(NAME)
 
 $(NAME): 		$(OBJ)
 				@$(AR) $(ARFLAGS) $(NAME) $(OBJ)
-				@printf "${_ERASE}  ${_CYAN}[$(call REPEAT_CHAR,⣿,$(BAR_WIDTH))$(call REPEAT_CHAR, ,0)]${_END} ${_WHITE}${PERCENT}%%${_END} ${_GREY}ϟ Compiled.${_END}"
+				@printf "${_ERASE}\n  ${_CYAN}$(call REPEAT_CHAR,•,$(BAR_WIDTH))🦋$(call REPEAT_CHAR, ,0)🌺${_END} ${_WHITE}${PERCENT}%%${_END} ${_GREY}ϟ Compiled.${_END}"
 				@echo ""
 				@if [ $(NORM) -eq 0 ]; then\
 					echo "  $(_GREEN)$(NORM_RET)$(_END)";\
@@ -128,7 +126,7 @@ $(OBJDIR)/%.o: 	%.c $(MFILE) $(HDRS) $(SUBHDRS)
 				@$(eval EMPTY := $(shell echo $$(($(BAR_WIDTH) - $(PROGRESS)))))
 				@printf "$(_ERASE)  ${_GREY}ϟ Compiled: $<${_END}"
 				@printf "\n"
-				@printf "  $(_CYAN)[$(call REPEAT_CHAR,⣿,$(PROGRESS))$(call REPEAT_CHAR, ,$(EMPTY))]${_END} ${_WHITE}${PERCENT}%%${_END} ${_GREY}ϟ Compiling: $<${_END}" 10
+				@printf "  $(_CYAN)$(call REPEAT_CHAR,•,$(PROGRESS))🦋$(call REPEAT_CHAR, ,$(EMPTY))🌺${_END} ${_WHITE}${PERCENT}%%${_END} ${_GREY}ϟ Compiling: $<${_END}" 10
 
 $(OBJDIR):
 				@echo "$(_PURPLE)Making output directory...$(_END)"
