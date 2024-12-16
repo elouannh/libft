@@ -18,6 +18,7 @@
 
 int	ft_putchar_fd(char c, int fd);
 int	ft_putendl_fd(char *s, int fd);
+int	ft_putnbr_base_fd(long double n, char *base, int fd);
 int	ft_putnbr_fd(int n, int fd);
 int	ft_putstr_fd(char *s, int fd);
 

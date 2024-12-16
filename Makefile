@@ -11,7 +11,8 @@ HDRS	:=	libft.h
 
 # SOURCES ######################################################################
 
-SRCFD	:=	ft_putchar_fd ft_putendl_fd ft_putnbr_fd ft_putstr_fd
+SRCFD	:=	ft_putchar_fd ft_putendl_fd ft_putnbr_base_fd ft_putnbr_fd		\
+			ft_putstr_fd
 SRCIS	:=	ft_isalnum ft_isalpha ft_isascii ft_isdigit ft_isprint
 SRCLST	:=	ft_lstadd_back ft_lstadd_front ft_lstclear ft_lstdelone			\
 			ft_lstiter ft_lstlast ft_lstmap ft_lstnew ft_lstsize
