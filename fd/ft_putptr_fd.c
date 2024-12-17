@@ -1,24 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   ft_printptr_fd.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ehosta <ehosta@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/04 13:49:24 by ehosta            #+#    #+#             */
-/*   Updated: 2024/11/08 15:36:09 by ehosta           ###   LAUSANNE.ch       */
+/*   Created: 2024/12/17 13:42:38 by ehosta            #+#    #+#             */
+/*   Updated: 2024/12/17 13:42:38 by ehosta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-# define LIBFT_H
+#include "ft_fd.h"
 
-# include "fd/ft_fd.h"
-# include "is/ft_is.h"
-# include "lst/ft_lst.h"
-# include "mem/ft_mem.h"
-# include "printf/ft_printf.h"
-# include "str/ft_str.h"
-# include "to/ft_to.h"
+int	ft_putptr_fd(unsigned long long n, int fd)
+{
+	int	putnbr_result;
 
-#endif
+	if (n == 0)
+	{
+		if (ft_putstr_fd("(nil)", fd) == -1)
+			return (-1);
+		return (5);
+	}
+	if (ft_putstr_fd("0x", fd) == -1)
+		return (-1);
+	putnbr_result = ft_putnbr_base_fd(n, "0123456789abcdef", fd);
+	if (putnbr_result == -1)
+		return (-1);
+	return (2 + putnbr_result);
+}

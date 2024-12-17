@@ -14,7 +14,14 @@
 
 int	ft_putendl_fd(char *s, int fd)
 {
-	if (ft_putstr_fd(s, fd) == -1)
+	int	putstr_result;
+	int	newline_result;
+
+	putstr_result = ft_putstr_fd(s, fd);
+	if (putstr_result == -1)
 		return (-1);
-	return (ft_putchar_fd('\n', fd));
+	newline_result = ft_putchar_fd('\n', fd);
+	if (newline_result == -1)
+		return (-1);
+	return (putstr_result + newline_result);
 }

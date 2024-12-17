@@ -16,6 +16,10 @@
 # include <stdarg.h>
 # include "../fd/ft_fd.h"
 
+# ifndef PRINTF_FD
+#  define PRINTF_FD 1
+# endif
+
 int	ft_printf(const char *format, ...);
 
 #endif

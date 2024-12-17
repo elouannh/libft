@@ -11,21 +11,23 @@ HDRS	:=	libft.h
 
 # SOURCES ######################################################################
 
-SRCFD	:=	ft_putchar_fd ft_putendl_fd ft_putnbr_base_fd ft_putnbr_fd		\
-			ft_putstr_fd
-SRCIS	:=	ft_isalnum ft_isalpha ft_isascii ft_isdigit ft_isprint
-SRCLST	:=	ft_lstadd_back ft_lstadd_front ft_lstclear ft_lstdelone			\
-			ft_lstiter ft_lstlast ft_lstmap ft_lstnew ft_lstsize
-SRCMEM	:=	ft_bzero ft_calloc ft_memchr ft_memcmp ft_memcpy ft_memmove		\
-			ft_memset
-SRCSTR	:=	ft_split ft_strchr ft_strdup ft_striteri ft_strjoin ft_strlcat	\
-			ft_strlcpy ft_strlen ft_strmapi ft_strncmp ft_strnstr			\
-			ft_strrchr ft_strtrim ft_substr
-SRCTO	:=	ft_atoi ft_itoa ft_tolower ft_toupper
-SRCALL	:=	$(addprefix fd/, $(SRCFD)) $(addprefix is/, $(SRCIS))			\
-			$(addprefix lst/, $(SRCLST)) $(addprefix mem/, $(SRCMEM))		\
-			$(addprefix str/, $(SRCSTR)) $(addprefix to/, $(SRCTO))
-SRC		:=	$(addsuffix .c, $(SRCALL))
+SRCFD		:=	ft_putchar_fd ft_putendl_fd ft_putnbr_base_fd ft_putnbr_fd	\
+				ft_putptr_fd ft_putstr_fd
+SRCIS		:=	ft_isalnum ft_isalpha ft_isascii ft_isdigit ft_isprint
+SRCLST		:=	ft_lstadd_back ft_lstadd_front ft_lstclear ft_lstdelone		\
+				ft_lstiter ft_lstlast ft_lstmap ft_lstnew ft_lstsize
+SRCMEM		:=	ft_bzero ft_calloc ft_memchr ft_memcmp ft_memcpy ft_memmove	\
+				ft_memset
+SRCPRINTF	:=	ft_printf
+SRCSTR		:=	ft_split ft_strchr ft_strdup ft_striteri ft_strjoin			\
+				ft_strlcat ft_strlcpy ft_strlen ft_strmapi ft_strncmp		\
+				ft_strnstr ft_strrchr ft_strtrim ft_substr
+SRCTO		:=	ft_atoi ft_itoa ft_tolower ft_toupper
+SRCALL		:=	$(addprefix fd/, $(SRCFD)) $(addprefix is/, $(SRCIS))		\
+				$(addprefix lst/, $(SRCLST)) $(addprefix mem/, $(SRCMEM))	\
+				$(addprefix printf/, $(SRCPRINTF))							\
+				$(addprefix str/, $(SRCSTR)) $(addprefix to/, $(SRCTO))
+SRC			:=	$(addsuffix .c, $(SRCALL))
 
 # OBJECTS ######################################################################
 
@@ -36,7 +38,7 @@ OBJ		:=	$(addprefix $(OBJDIR)/, $(OBJS))
 # COMMANDS AND FLAGS ###########################################################
 
 CC		:=	cc
-CFLAGS	:=	-Wall -Wextra -Werror
+CFLAGS	:=	-Wall -Wextra -Werror -g3
 AR		:=	ar
 ARFLAGS	:=	rcs
 RM		:=	rm
